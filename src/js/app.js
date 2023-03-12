@@ -1,9 +1,12 @@
-/* eslint-disable no-unused-vars */
-import Character from './characters/character';
-import Bowerman from './characters/bowerman';
-import Swordsman from './characters/swordsman';
-import Magician from './characters/magician';
-import Daemon from './characters/daemon';
-import Undead from './characters/undead';
-import Zombie from './characters/zombie';
-import Team from './team';
+export default class ErrorRepository {
+    constructor() {
+      this.repository = new Map([[1, 'ошибка 1'], [2, 'ошибка 2'], [3, 'ошибка 3'], [4, 'ошибка 4'], [5, 'ошибка 5']]);
+    }
+  
+    translate(code) {
+      if (this.repository.has(code)) {
+        return this.repository.get(code);
+      }
+      return 'Uknown error';
+    }
+  }
